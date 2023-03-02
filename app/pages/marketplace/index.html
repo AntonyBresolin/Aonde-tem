@@ -1,0 +1,67 @@
+
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+    <title>Mapa do Brasil SVG</title>
+    
+  <style>
+      body {height: 1500px;}
+      #svg-map path { fill: rgba(191, 191, 190, 1); } 
+      #svg-map text { fill:#fff; font:12px Arial-BoldMT, sans-serif; cursor:pointer }
+      #svg-map a{ text-decoration:none }
+      #svg-map a:hover { cursor:pointer; text-decoration:none }
+      #svg-map a:hover path{ fill: rgba(249, 186, 072, 1) !important } 
+      #svg-map .circle { fill: rgba(128, 128, 128, 1) }
+      #svg-map a:hover .circle { fill: rgba(249, 186, 072, 1) !important; cursor:pointer } 
+  
+  </style>
+  </head>
+  <body>
+    <div class="container">
+          
+    </div>
+<script type="text/javascript">
+const stateEl = document.querySelectorAll(".estado")
+
+stateEl.forEach(state => {
+    state.addEventListener("click", () => {
+    console.log(state.children[state.children.length - 1].textContent);
+    })
+})
+
+
+$(document).ready(function(){
+    $("#loading").hide();
+    $('.estado').click(function(e){
+        e.preventDefault();
+        var estado = $(this).attr('xlink:href').toUpperCase()
+
+        $("#loading").show();
+        $.ajax({
+            url: 'servo.php',
+            type: "GET",
+            dataType: "json",
+            data: {uf: estado}
+        })
+        .done(function (data) {
+            var items = [];
+            $("#titulo").html("<h2>"+data.uf+"</h2>");
+            $.each( data.valores, function( key, val ) {
+                var internos = "";
+                $.each( val, function( key2, val2 ) {
+                    internos += "<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle collapsed\" data-toggle=\"collapse\" data-parent=\"#accordion3\" href=\"#"+val2.id+"\">"+val2.nome+"</a></div><div id=\""+val2.id+"\" class=\"accordion-body collapse\"><div class=\"accordion-inner\"><dl class=\"dl-horizontal\"><dt>Município</dt><dd>"+val2.municipio+"</dd><dt>Telefone</dt><dd>"+val2.telefone+"</dd><dt>E-mail</dt><dd>"+val2.email+"</dd><dt>Endereço</dt><dd>"+val2.endereco+"</dd><dt>CEP</dt><dd>"+val2.cep+"</dd></div></div></div>";
+                });
+                items.push( "<div class=\"accordion-group\"><div class=\"accordion-heading\"><a class=\"accordion-toggle collapsed\" data-toggle=\"collapse\" data-parent=\"#accordion2\" href=\"#"+key.replace(/\s+/g, '')+"\">"+key+"</a></div><div id=\""+key.replace(/\s+/g, '')+"\" class=\"accordion-body collapse\"><div class=\"accordion-inner\"><div class=\"accordion\" id=\"accordion3\">"+internos+"</div></div></div></div>");
+            });
+
+
+$("#accordion2").html(items);
+$('html,body').animate({scrollTop: $("#titulo").offset().top - 30},'slow');
+$("#loading").hide();
+});
+return false;
+});
+});
+
+</script>
+  </body>
+</html>

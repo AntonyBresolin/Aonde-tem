@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="index.css">
+        
+        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+        <script src="firebase-init.js"></script>
+        <script src="index.js"></script>
+        <script src="validations.js"></script>
+        <script src="loading.js"></script>
+        
+        <title>Controle de Gastos</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navbar-nav">
+              <a href="../web/index.html">Início</a>
+              <a href="./marketplace/marketplace.html">Produtos</a>
+            </div>
+        </nav>
+
+        <main>
+            <form>
+                <div class="container">
+                    <div class="form-field">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-right-to-bracket"></i>
+                                <input type="email" name="email" id="email" placeholder="Digite seu email" onchange="onChangeEmail()"/>
+                            </div>
+                        </div>
+                            
+                        <div class="error" id="email-required-error">
+                            Email é obrigatório
+                        </div>
+                        <div class="error" id="email-invalid-error">
+                            Email é inválido
+                        </div>   
+                    </div>
+                    
+                    <div class="form-field">
+                        <div class="form-group">
+                            <label>Senha</label>
+                            <div class="input-wrapper">
+                                <i class="fa-solid fa-key"></i>
+                                <input type="password" name="password" id="password" placeholder="Digite sua senha" onchange="onChangePassword()"/>
+                            </div>
+                        </div>
+            
+                        <div class="error" id="password-required-error">
+                            Senha é obrigatória
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-button">
+                    <button type="button" class="login-button" id="loginButton" onclick="login()">Entrar</button>
+                </div>
+                <a type="button" id="recover-password-link" onclick="recoverPassword()" disabled="true">Esqueceu sua senha?</a>
+            </form>
+        </main>
+    </body>
+</html>

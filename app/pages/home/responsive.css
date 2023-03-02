@@ -1,0 +1,22 @@
+
+  @media (max-width: 1205px){
+    svg#svg-map{
+        width: 450px;
+    }
+
+    main#listItems {
+        justify-content: space-around;
+    }
+
+    main#listItems div.container{
+        width: 35rem;
+    }
+    
+    
+}
+
+@media (max-width: 500px){
+    svg#svg-map{
+        width: 25rem;
+    }
+}

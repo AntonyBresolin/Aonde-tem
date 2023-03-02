@@ -1,0 +1,32 @@
+
+@media (max-width: 1300px){
+    body{
+        flex-direction: row;
+    }
+
+    svg#svg-map{
+        margin-top: 50px;
+    }
+}
+
+
+@media (max-width: 1000px){
+    svg#svg-map{
+        width: 100%;   
+    }
+
+    a.btn{
+        top: 4.5rem;
+        right: 0.5rem;
+    }
+}
+
+@media (max-width: 400px){
+    svg#svg-map{
+        width: 325px;
+    }
+
+    button.btn{
+        font-size: 10px;
+    }
+}

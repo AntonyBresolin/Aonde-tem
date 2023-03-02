@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+    height: 100vh;
+    padding: 0 2rem;
+}
+
+@media (max-width: 1200px) {
+    body {
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+/*NAVBAR*/
+
+.login-adm { 
+    background-color: rgb(38, 167, 253);
+    color: var(--bg-light);
+    padding: 8px;
+    border-radius: 10px;
+    width: 8rem;
+    font-weight: 600;
+}
+
+/*MAIN*/
+main {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
