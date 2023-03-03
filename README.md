@@ -12,10 +12,10 @@ Projeto foi construido com as técnologias:
 - FIREBASE
 
 A equipe designada foi:
-Lider de equipe e desenvolvedor fullstack: Antony Henrique Bresolin
-Desenvolvedor backend: Claudio Honório Junior
-Desenvolvedor front end: Ricardo Henrique Vinciguerra
-Desenvolvedor: Gabriel Aragão
+<p>Lider de equipe e desenvolvedor fullstack: <a href="https://github.com/AntonyBresolin"> Antony Henrique Bresolin </a><br>
+Desenvolvedor backend:<a href="https://github.com/ClaudioSilvaJ"> Claudio Honório Junior</a><br>
+Desenvolvedor front end: <a href="https://github.com/ricardorhv"> Ricardo Henrique Vinciguerra </a> <br>
+Desenvolvedor:<a href="https://github.com/gabrielSaanG"> Gabriel Aragão</a> </p>
 
 
 
